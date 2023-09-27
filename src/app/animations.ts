@@ -15,7 +15,7 @@ export const slideInAnimation = trigger('slideInAnimation', [
       ], { optional: true }),
       query(':leave', [
         style({ transform: 'translateX(0%)' }),
-        animate('0.3s Linear', style({ transform: 'translateX(-150%)' ,}))
+        animate('0.3s Linear', style({ transform: 'translateX(-150%)' }))
       ], { optional: true })
     ])
   ])

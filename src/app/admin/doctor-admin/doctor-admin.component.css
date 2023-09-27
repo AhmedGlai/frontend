@@ -1,0 +1,14 @@
+.pt-doc{
+    margin-left: 20px;
+}
+.body{
+    margin: 0px 20px;
+    width: -webkit-fill-available !important;
+    width: fill-available !important;
+    padding-bottom: 20px;
+}
+h3{
+    padding-top: 20px;
+    padding-left: 20px;
+    color: #192252;
+}

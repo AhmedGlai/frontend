@@ -9,6 +9,13 @@
         <div class="navbar-container" style="">
          
           <div class="nav-bar-elements">
+
+            <div class="Incall-container" [ngClass]="{'Oncall': userHaveCallID.length >0}">
+                <div class="Incall-container1"  [ngClass]="{'on': (userHaveCallID != '' )}" >
+                   <button (click)="toCall()">TO call</button>
+                   <button (click)="CancelAttempt()"> Cancel</button>
+                </div>
+            </div>
             <button class="setting" style="z-index: 3;position: relative;" [class.active]="isActive1" (click)="toggleActive1()">
                 <svg width="30" style="z-index: -3;position: relative;" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Iconly/Light-Outline/Notification">
@@ -33,14 +40,16 @@
                     </div>
                     
             </button>
-            <div class="avatar-container"  [class.active]="isActive" (click)="toggleActive()" id="avatar" >
+            <div class="ava avatar-container"  [class.active]="isActive" (click)="toggleActive()" id="avatar" >
                 <img src="../../assets/icons/avatar.jpg" class="avatar" alt="">
-            <div class="account-settings-container" id="settings">
-                <div class="trinagle">
+            <div class="account-settings-container ava" id="settings">
+                <div class="trinagle ava">
                 </div>
+                {{username$}}
                 <p>Settings</p>
-                <button class="b1">Account</button>
-                <button class="b2">Sing out</button>
+              
+                <button class="b1 ava"  routerLink="./account">Account</button>
+                <button class="b2 ava" (click)="SingOut()">Sing out</button>
             </div>
             </div>
         </div>
@@ -167,6 +176,26 @@
                   Transaction</button>
 </div> </div>
 <div style="width: calc(100% -  351.23px);margin-left:  351.23px !important; ">
+
+
+        <div  *ngIf="call && CallObservableSUB">
+            <div *ngIf="call.statu=='requesting Call'" class="attempting-container">
+
+                <div class="attempting-container" *ngIf="call.reciever === user.uid">
+                    recieving Call
+                    <button (click)="AccpectCall()">Accept</button> <button (click)="CancelAttempt()">Decline</button>
+            
+            </div>
+           <div class="attempting-container" *ngIf="call.starterId  === user.uid">
+                attemptingCall
+                <button (click)="CancelAttempt()" >Cancel</button>
+            </div>
+            </div>
+                
+    
+        </div>
+       
+    
 <router-outlet></router-outlet>
 </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="TheBody" ><app-header></app-header>
-    <div class="container" [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''">
+    <div class="container" [@slideInAnimation] [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''">
       <router-outlet #o="outlet" ></router-outlet>
     </div>
     </div>
